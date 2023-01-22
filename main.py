@@ -6,16 +6,6 @@ API_KEY = os.getenv("API_KEY")
 bot = telebot.TeleBot(API_KEY)
 
 
-from gsheet import spreadsheet
-template_id = spreadsheet.worksheet("Template").id
-new_sheet_i = len(spreadsheet._spreadsheets_get()['sheets'])
-
-# event = spreadsheet.duplicate_sheet(template_id, insert_sheet_index=new_sheet_i, new_sheet_name='#00دورهمي')
-# event.update_cell(2, 1, 'ali')
-# event.update_cell(2, 2, '120000')
-# event.update_cell(2, 4, '120001')
-
-
 @bot.message_handler(commands=['friends'])
 def names(message):
   names = message.text.split('\n')[1:]
